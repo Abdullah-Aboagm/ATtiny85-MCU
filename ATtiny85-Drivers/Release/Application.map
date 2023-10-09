@@ -16,6 +16,10 @@ Discarded input sections
  .text          0x0000000000000000        0x0 main.o
  .data          0x0000000000000000        0x0 main.o
  .bss           0x0000000000000000        0x0 main.o
+ .text          0x0000000000000000        0x0 MCAL_Layer/Device_Config/device_config.o
+ .data          0x0000000000000000        0x0 MCAL_Layer/Device_Config/device_config.o
+ .bss           0x0000000000000000        0x0 MCAL_Layer/Device_Config/device_config.o
+ .comment       0x0000000000000000       0x30 MCAL_Layer/Device_Config/device_config.o
  .text          0x0000000000000000        0x0 MCAL_Layer/GPIO/hal_gpio.o
  .data          0x0000000000000000        0x0 MCAL_Layer/GPIO/hal_gpio.o
  .bss           0x0000000000000000        0x0 MCAL_Layer/GPIO/hal_gpio.o
@@ -94,6 +98,7 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.10.348/xc8/avr/lib/avr25/memx-const/crtattiny85.o
 LOAD main.o
+LOAD MCAL_Layer/Device_Config/device_config.o
 LOAD MCAL_Layer/GPIO/hal_gpio.o
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libm.a
@@ -293,7 +298,6 @@ END GROUP
  *(.gnu.linkonce.d*)
  *(.gnu.linkonce.r*)
                 0x0000000000800060                . = ALIGN (0x2)
- *fill*         0x0000000000800060        0x0 
                 0x0000000000800060                _edata = .
                 [!provide]                        PROVIDE (__data_end, .)
 
@@ -461,69 +465,73 @@ LOAD data_init
                 0x0000000000000076                __vector_10
 
 .text.main_initialize
-                0x0000000000000078       0x28
+                0x0000000000000078       0x30
  .text.main_initialize
-                0x0000000000000078       0x28 main.o
+                0x0000000000000078       0x30 main.o
                 0x0000000000000078                main_initialize
 
-.text.main      0x00000000000000a0       0x3e
- .text.main     0x00000000000000a0       0x3e main.o
-                0x00000000000000a0                main
+.text.main      0x00000000000000a8       0x46
+ .text.main     0x00000000000000a8       0x46 main.o
+                0x00000000000000a8                main
 
 .text.gpio_pin_direction_initialize
-                0x00000000000000de       0x74
+                0x00000000000000ee       0x74
  .text.gpio_pin_direction_initialize
-                0x00000000000000de       0x74 MCAL_Layer/GPIO/hal_gpio.o
-                0x00000000000000de                gpio_pin_direction_initialize
+                0x00000000000000ee       0x74 MCAL_Layer/GPIO/hal_gpio.o
+                0x00000000000000ee                gpio_pin_direction_initialize
 
 .text.gpio_pin_toggle_logic
-                0x0000000000000152       0x42
+                0x0000000000000162       0x42
  .text.gpio_pin_toggle_logic
-                0x0000000000000152       0x42 MCAL_Layer/GPIO/hal_gpio.o
-                0x0000000000000152                gpio_pin_toggle_logic
+                0x0000000000000162       0x42 MCAL_Layer/GPIO/hal_gpio.o
+                0x0000000000000162                gpio_pin_toggle_logic
 
 .text.__dummy_fini
-                0x0000000000000194        0x2
+                0x00000000000001a4        0x2
  .text.__dummy_fini
-                0x0000000000000194        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
-                0x0000000000000194                _fini
+                0x00000000000001a4        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
+                0x00000000000001a4                _fini
 
 .text.__dummy_funcs_on_exit
-                0x0000000000000196        0x2
+                0x00000000000001a6        0x2
  .text.__dummy_funcs_on_exit
-                0x0000000000000196        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
-                0x0000000000000196                __funcs_on_exit
+                0x00000000000001a6        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
+                0x00000000000001a6                __funcs_on_exit
 
 .text.__dummy_simulator_exit
-                0x0000000000000198        0x2
+                0x00000000000001a8        0x2
  .text.__dummy_simulator_exit
-                0x0000000000000198        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
-                0x0000000000000198                __simulator_exit
+                0x00000000000001a8        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
+                0x00000000000001a8                __simulator_exit
 
-.text.exit      0x000000000000019a        0xe
- .text.exit     0x000000000000019a        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
-                0x000000000000019a                exit
+.text.exit      0x00000000000001aa        0xe
+ .text.exit     0x00000000000001aa        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(exit.o)
+                0x00000000000001aa                exit
 
-.text._Exit     0x00000000000001a8        0x2
- .text._Exit    0x00000000000001a8        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(_Exit.o)
-                0x00000000000001a8                _Exit
+.text._Exit     0x00000000000001b8        0x2
+ .text._Exit    0x00000000000001b8        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25/memx-const\libc.a(_Exit.o)
+                0x00000000000001b8                _Exit
 
-.data.led_5     0x0000000000800060        0x1 load address 0x00000000000001aa
- .data.led_5    0x0000000000800060        0x1 main.o
-                0x0000000000800060                led_5
+.data.led_6     0x0000000000800060        0x1 load address 0x00000000000001ba
+ .data.led_6    0x0000000000800060        0x1 main.o
+                0x0000000000800060                led_6
 
-.data.led_4     0x0000000000800061        0x1 load address 0x00000000000001ab
- .data.led_4    0x0000000000800061        0x1 main.o
-                0x0000000000800061                led_4
+.data.led_5     0x0000000000800061        0x1 load address 0x00000000000001bb
+ .data.led_5    0x0000000000800061        0x1 main.o
+                0x0000000000800061                led_5
 
-.data.led_3     0x0000000000800062        0x1 load address 0x00000000000001ac
- .data.led_3    0x0000000000800062        0x1 main.o
-                0x0000000000800062                led_3
+.data.led_4     0x0000000000800062        0x1 load address 0x00000000000001bc
+ .data.led_4    0x0000000000800062        0x1 main.o
+                0x0000000000800062                led_4
 
-.data.led_2     0x0000000000800063        0x1 load address 0x00000000000001ad
- .data.led_2    0x0000000000800063        0x1 main.o
-                0x0000000000800063                led_2
+.data.led_3     0x0000000000800063        0x1 load address 0x00000000000001bd
+ .data.led_3    0x0000000000800063        0x1 main.o
+                0x0000000000800063                led_3
 
-.data.led_1     0x0000000000800064        0x1 load address 0x00000000000001ae
- .data.led_1    0x0000000000800064        0x1 main.o
-                0x0000000000800064                led_1
+.data.led_2     0x0000000000800064        0x1 load address 0x00000000000001be
+ .data.led_2    0x0000000000800064        0x1 main.o
+                0x0000000000800064                led_2
+
+.data.led_1     0x0000000000800065        0x1 load address 0x00000000000001bf
+ .data.led_1    0x0000000000800065        0x1 main.o
+                0x0000000000800065                led_1

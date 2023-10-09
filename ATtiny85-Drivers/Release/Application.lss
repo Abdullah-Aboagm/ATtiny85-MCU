@@ -3,53 +3,55 @@ Application.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000076  00000000  00000000  000000d4  2**1
+  0 .text         00000076  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00000076  0000014c  2**0
-                  ALLOC
-  2 .comment      0000002f  00000000  00000000  00000283  2**0
+  1 .data         00000000  00800060  000001c0  00000254  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000254  2**0
                   CONTENTS, READONLY
-  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000002b2  2**0
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  00000283  2**0
                   CONTENTS, READONLY
-  4 .debug_info   00000420  00000000  00000000  000002c0  2**0
+  4 .debug_info   00000420  00000000  00000000  00000291  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 000003e8  00000000  00000000  000006e0  2**0
+  5 .debug_abbrev 000003e8  00000000  00000000  000006b1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   000000f5  00000000  00000000  00000ac8  2**0
+  6 .debug_line   000000f5  00000000  00000000  00000a99  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    00000169  00000000  00000000  00000bbd  2**0
+  7 .debug_str    00000169  00000000  00000000  00000b8e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .text         00000002  00000076  00000076  0000014a  2**1
+  8 .text         00000002  00000076  00000076  0000010a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  9 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000d28  2**2
+  9 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000cf8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .text.main_initialize 00000028  00000078  00000078  0000014c  2**1
+ 10 .text.main_initialize 00000030  00000078  00000078  0000010c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 11 .text.main    0000003e  000000a0  000000a0  00000174  2**1
+ 11 .text.main    00000046  000000a8  000000a8  0000013c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .data.led_5   00000001  00800060  000001aa  0000027e  2**0
+ 12 .data.led_6   00000001  00800060  000001ba  0000024e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
- 13 .data.led_4   00000001  00800061  000001ab  0000027f  2**0
+ 13 .data.led_5   00000001  00800061  000001bb  0000024f  2**0
                   CONTENTS, ALLOC, LOAD, DATA
- 14 .data.led_3   00000001  00800062  000001ac  00000280  2**0
+ 14 .data.led_4   00000001  00800062  000001bc  00000250  2**0
                   CONTENTS, ALLOC, LOAD, DATA
- 15 .data.led_2   00000001  00800063  000001ad  00000281  2**0
+ 15 .data.led_3   00000001  00800063  000001bd  00000251  2**0
                   CONTENTS, ALLOC, LOAD, DATA
- 16 .data.led_1   00000001  00800064  000001ae  00000282  2**0
+ 16 .data.led_2   00000001  00800064  000001be  00000252  2**0
                   CONTENTS, ALLOC, LOAD, DATA
- 17 .text.gpio_pin_direction_initialize 00000074  000000de  000000de  000001b2  2**1
+ 17 .data.led_1   00000001  00800065  000001bf  00000253  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 18 .text.gpio_pin_direction_initialize 00000074  000000ee  000000ee  00000182  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.gpio_pin_toggle_logic 00000042  00000152  00000152  00000226  2**1
+ 19 .text.gpio_pin_toggle_logic 00000042  00000162  00000162  000001f6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.__dummy_fini 00000002  00000194  00000194  00000268  2**1
+ 20 .text.__dummy_fini 00000002  000001a4  000001a4  00000238  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 20 .text.__dummy_funcs_on_exit 00000002  00000196  00000196  0000026a  2**1
+ 21 .text.__dummy_funcs_on_exit 00000002  000001a6  000001a6  0000023a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 21 .text.__dummy_simulator_exit 00000002  00000198  00000198  0000026c  2**1
+ 22 .text.__dummy_simulator_exit 00000002  000001a8  000001a8  0000023c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 22 .text.exit    0000000e  0000019a  0000019a  0000026e  2**1
+ 23 .text.exit    0000000e  000001aa  000001aa  0000023e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 23 .text._Exit   00000002  000001a8  000001a8  0000027c  2**1
+ 24 .text._Exit   00000002  000001b8  000001b8  0000024c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
@@ -73,9 +75,9 @@ Disassembly of section .text:
 
 0000001e <.dinit>:
   1e:	00 60       	ori	r16, 0x00	; 0
-  20:	00 65       	ori	r16, 0x50	; 80
+  20:	00 66       	ori	r16, 0x60	; 96
   22:	00 01       	movw	r0, r0
-  24:	aa 00       	.word	0x00aa	; ????
+  24:	ba 00       	.word	0x00ba	; ????
 
 00000026 <__ctors_end>:
   26:	11 24       	eor	r1, r1
@@ -118,8 +120,8 @@ Disassembly of section .text:
   68:	e5 32       	cpi	r30, 0x25	; 37
   6a:	f4 07       	cpc	r31, r20
   6c:	31 f7       	brne	.-52     	; 0x3a <__do_copy_data+0x8>
-  6e:	18 d0       	rcall	.+48     	; 0xa0 <main>
-  70:	94 c0       	rjmp	.+296    	; 0x19a <exit>
+  6e:	1c d0       	rcall	.+56     	; 0xa8 <main>
+  70:	9c c0       	rjmp	.+312    	; 0x1aa <exit>
 
 00000072 <_exit>:
   72:	f8 94       	cli
@@ -130,193 +132,201 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 00000076 <__bad_interrupt>:
-  76:	c4 cf       	rjmp	.-120    	; 0x0 <__vectors>
+  76:	c4 cf       	rjmp	.-120    	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.main_initialize:
 
 00000078 <main_initialize>:
-  78:	64 e6       	ldi	r22, 0x64	; 100
+  78:	65 e6       	ldi	r22, 0x65	; 101
   7a:	70 e0       	ldi	r23, 0x00	; 0
   7c:	80 e8       	ldi	r24, 0x80	; 128
-  7e:	2f d0       	rcall	.+94     	; 0xde <gpio_pin_direction_initialize>
-  80:	63 e6       	ldi	r22, 0x63	; 99
+  7e:	37 d0       	rcall	.+110    	; 0xee <gpio_pin_direction_initialize>
+  80:	64 e6       	ldi	r22, 0x64	; 100
   82:	70 e0       	ldi	r23, 0x00	; 0
   84:	80 e8       	ldi	r24, 0x80	; 128
-  86:	2b d0       	rcall	.+86     	; 0xde <gpio_pin_direction_initialize>
-  88:	62 e6       	ldi	r22, 0x62	; 98
+  86:	33 d0       	rcall	.+102    	; 0xee <gpio_pin_direction_initialize>
+  88:	63 e6       	ldi	r22, 0x63	; 99
   8a:	70 e0       	ldi	r23, 0x00	; 0
   8c:	80 e8       	ldi	r24, 0x80	; 128
-  8e:	27 d0       	rcall	.+78     	; 0xde <gpio_pin_direction_initialize>
-  90:	61 e6       	ldi	r22, 0x61	; 97
+  8e:	2f d0       	rcall	.+94     	; 0xee <gpio_pin_direction_initialize>
+  90:	62 e6       	ldi	r22, 0x62	; 98
   92:	70 e0       	ldi	r23, 0x00	; 0
   94:	80 e8       	ldi	r24, 0x80	; 128
-  96:	23 d0       	rcall	.+70     	; 0xde <gpio_pin_direction_initialize>
-  98:	60 e6       	ldi	r22, 0x60	; 96
+  96:	2b d0       	rcall	.+86     	; 0xee <gpio_pin_direction_initialize>
+  98:	61 e6       	ldi	r22, 0x61	; 97
   9a:	70 e0       	ldi	r23, 0x00	; 0
   9c:	80 e8       	ldi	r24, 0x80	; 128
-  9e:	1f c0       	rjmp	.+62     	; 0xde <gpio_pin_direction_initialize>
+  9e:	27 d0       	rcall	.+78     	; 0xee <gpio_pin_direction_initialize>
+  a0:	60 e6       	ldi	r22, 0x60	; 96
+  a2:	70 e0       	ldi	r23, 0x00	; 0
+  a4:	80 e8       	ldi	r24, 0x80	; 128
+  a6:	23 c0       	rjmp	.+70     	; 0xee <gpio_pin_direction_initialize>
 
 Disassembly of section .text.main:
 
-000000a0 <main>:
-  a0:	eb df       	rcall	.-42     	; 0x78 <main_initialize>
-  a2:	64 e6       	ldi	r22, 0x64	; 100
-  a4:	70 e0       	ldi	r23, 0x00	; 0
-  a6:	80 e8       	ldi	r24, 0x80	; 128
-  a8:	54 d0       	rcall	.+168    	; 0x152 <gpio_pin_toggle_logic>
-  aa:	63 e6       	ldi	r22, 0x63	; 99
+000000a8 <main>:
+  a8:	e7 df       	rcall	.-50     	; 0x78 <main_initialize>
+  aa:	65 e6       	ldi	r22, 0x65	; 101
   ac:	70 e0       	ldi	r23, 0x00	; 0
   ae:	80 e8       	ldi	r24, 0x80	; 128
-  b0:	50 d0       	rcall	.+160    	; 0x152 <gpio_pin_toggle_logic>
-  b2:	62 e6       	ldi	r22, 0x62	; 98
+  b0:	58 d0       	rcall	.+176    	; 0x162 <gpio_pin_toggle_logic>
+  b2:	64 e6       	ldi	r22, 0x64	; 100
   b4:	70 e0       	ldi	r23, 0x00	; 0
   b6:	80 e8       	ldi	r24, 0x80	; 128
-  b8:	4c d0       	rcall	.+152    	; 0x152 <gpio_pin_toggle_logic>
-  ba:	61 e6       	ldi	r22, 0x61	; 97
+  b8:	54 d0       	rcall	.+168    	; 0x162 <gpio_pin_toggle_logic>
+  ba:	63 e6       	ldi	r22, 0x63	; 99
   bc:	70 e0       	ldi	r23, 0x00	; 0
   be:	80 e8       	ldi	r24, 0x80	; 128
-  c0:	48 d0       	rcall	.+144    	; 0x152 <gpio_pin_toggle_logic>
-  c2:	60 e6       	ldi	r22, 0x60	; 96
+  c0:	50 d0       	rcall	.+160    	; 0x162 <gpio_pin_toggle_logic>
+  c2:	62 e6       	ldi	r22, 0x62	; 98
   c4:	70 e0       	ldi	r23, 0x00	; 0
   c6:	80 e8       	ldi	r24, 0x80	; 128
-  c8:	44 d0       	rcall	.+136    	; 0x152 <gpio_pin_toggle_logic>
-  ca:	2f e9       	ldi	r18, 0x9F	; 159
-  cc:	86 e8       	ldi	r24, 0x86	; 134
-  ce:	91 e0       	ldi	r25, 0x01	; 1
-  d0:	21 50       	subi	r18, 0x01	; 1
-  d2:	80 40       	sbci	r24, 0x00	; 0
-  d4:	90 40       	sbci	r25, 0x00	; 0
-  d6:	e1 f7       	brne	.-8      	; 0xd0 <main+0x30>
-  d8:	00 c0       	rjmp	.+0      	; 0xda <main+0x3a>
-  da:	00 00       	nop
-  dc:	e2 cf       	rjmp	.-60     	; 0xa2 <main+0x2>
+  c8:	4c d0       	rcall	.+152    	; 0x162 <gpio_pin_toggle_logic>
+  ca:	61 e6       	ldi	r22, 0x61	; 97
+  cc:	70 e0       	ldi	r23, 0x00	; 0
+  ce:	80 e8       	ldi	r24, 0x80	; 128
+  d0:	48 d0       	rcall	.+144    	; 0x162 <gpio_pin_toggle_logic>
+  d2:	60 e6       	ldi	r22, 0x60	; 96
+  d4:	70 e0       	ldi	r23, 0x00	; 0
+  d6:	80 e8       	ldi	r24, 0x80	; 128
+  d8:	44 d0       	rcall	.+136    	; 0x162 <gpio_pin_toggle_logic>
+  da:	2f e9       	ldi	r18, 0x9F	; 159
+  dc:	86 e8       	ldi	r24, 0x86	; 134
+  de:	91 e0       	ldi	r25, 0x01	; 1
+  e0:	21 50       	subi	r18, 0x01	; 1
+  e2:	80 40       	sbci	r24, 0x00	; 0
+  e4:	90 40       	sbci	r25, 0x00	; 0
+  e6:	e1 f7       	brne	.-8      	; 0xe0 <main+0x38>
+  e8:	00 c0       	rjmp	.+0      	; 0xea <main+0x42>
+  ea:	00 00       	nop
+  ec:	de cf       	rjmp	.-68     	; 0xaa <main+0x2>
 
 Disassembly of section .text.gpio_pin_direction_initialize:
 
-000000de <gpio_pin_direction_initialize>:
-  de:	a8 2f       	mov	r26, r24
-  e0:	cb 01       	movw	r24, r22
-  e2:	00 97       	sbiw	r24, 0x00	; 0
-  e4:	a1 05       	cpc	r26, r1
-  e6:	79 f1       	breq	.+94     	; 0x146 <gpio_pin_direction_initialize+0x68>
-  e8:	fc 01       	movw	r30, r24
-  ea:	24 91       	lpm	r18, Z
-  ec:	a7 fd       	sbrc	r26, 7
-  ee:	20 81       	ld	r18, Z
-  f0:	27 70       	andi	r18, 0x07	; 7
-  f2:	42 2f       	mov	r20, r18
-  f4:	50 e0       	ldi	r21, 0x00	; 0
-  f6:	46 30       	cpi	r20, 0x06	; 6
-  f8:	51 05       	cpc	r21, r1
-  fa:	3c f5       	brge	.+78     	; 0x14a <gpio_pin_direction_initialize+0x6c>
-  fc:	fc 01       	movw	r30, r24
-  fe:	84 91       	lpm	r24, Z
- 100:	a7 fd       	sbrc	r26, 7
- 102:	80 81       	ld	r24, Z
- 104:	83 fb       	bst	r24, 3
- 106:	99 27       	eor	r25, r25
- 108:	90 f9       	bld	r25, 0
- 10a:	83 ff       	sbrs	r24, 3
- 10c:	03 c0       	rjmp	.+6      	; 0x114 <gpio_pin_direction_initialize+0x36>
- 10e:	91 30       	cpi	r25, 0x01	; 1
- 110:	71 f0       	breq	.+28     	; 0x12e <gpio_pin_direction_initialize+0x50>
- 112:	1d c0       	rjmp	.+58     	; 0x14e <gpio_pin_direction_initialize+0x70>
- 114:	37 b3       	in	r19, 0x17	; 23
- 116:	81 e0       	ldi	r24, 0x01	; 1
- 118:	90 e0       	ldi	r25, 0x00	; 0
- 11a:	02 c0       	rjmp	.+4      	; 0x120 <gpio_pin_direction_initialize+0x42>
- 11c:	88 0f       	add	r24, r24
- 11e:	99 1f       	adc	r25, r25
- 120:	2a 95       	dec	r18
- 122:	e2 f7       	brpl	.-8      	; 0x11c <gpio_pin_direction_initialize+0x3e>
- 124:	80 95       	com	r24
- 126:	83 23       	and	r24, r19
- 128:	87 bb       	out	0x17, r24	; 23
- 12a:	81 e0       	ldi	r24, 0x01	; 1
- 12c:	08 95       	ret
- 12e:	37 b3       	in	r19, 0x17	; 23
- 130:	81 e0       	ldi	r24, 0x01	; 1
- 132:	90 e0       	ldi	r25, 0x00	; 0
- 134:	02 c0       	rjmp	.+4      	; 0x13a <gpio_pin_direction_initialize+0x5c>
- 136:	88 0f       	add	r24, r24
- 138:	99 1f       	adc	r25, r25
- 13a:	2a 95       	dec	r18
- 13c:	e2 f7       	brpl	.-8      	; 0x136 <gpio_pin_direction_initialize+0x58>
- 13e:	83 2b       	or	r24, r19
- 140:	87 bb       	out	0x17, r24	; 23
- 142:	81 e0       	ldi	r24, 0x01	; 1
- 144:	08 95       	ret
- 146:	80 e0       	ldi	r24, 0x00	; 0
- 148:	08 95       	ret
- 14a:	80 e0       	ldi	r24, 0x00	; 0
- 14c:	08 95       	ret
- 14e:	80 e0       	ldi	r24, 0x00	; 0
- 150:	08 95       	ret
+000000ee <gpio_pin_direction_initialize>:
+  ee:	a8 2f       	mov	r26, r24
+  f0:	cb 01       	movw	r24, r22
+  f2:	00 97       	sbiw	r24, 0x00	; 0
+  f4:	a1 05       	cpc	r26, r1
+  f6:	79 f1       	breq	.+94     	; 0x156 <gpio_pin_direction_initialize+0x68>
+  f8:	fc 01       	movw	r30, r24
+  fa:	24 91       	lpm	r18, Z
+  fc:	a7 fd       	sbrc	r26, 7
+  fe:	20 81       	ld	r18, Z
+ 100:	27 70       	andi	r18, 0x07	; 7
+ 102:	42 2f       	mov	r20, r18
+ 104:	50 e0       	ldi	r21, 0x00	; 0
+ 106:	46 30       	cpi	r20, 0x06	; 6
+ 108:	51 05       	cpc	r21, r1
+ 10a:	3c f5       	brge	.+78     	; 0x15a <gpio_pin_direction_initialize+0x6c>
+ 10c:	fc 01       	movw	r30, r24
+ 10e:	84 91       	lpm	r24, Z
+ 110:	a7 fd       	sbrc	r26, 7
+ 112:	80 81       	ld	r24, Z
+ 114:	83 fb       	bst	r24, 3
+ 116:	99 27       	eor	r25, r25
+ 118:	90 f9       	bld	r25, 0
+ 11a:	83 ff       	sbrs	r24, 3
+ 11c:	03 c0       	rjmp	.+6      	; 0x124 <gpio_pin_direction_initialize+0x36>
+ 11e:	91 30       	cpi	r25, 0x01	; 1
+ 120:	71 f0       	breq	.+28     	; 0x13e <gpio_pin_direction_initialize+0x50>
+ 122:	1d c0       	rjmp	.+58     	; 0x15e <gpio_pin_direction_initialize+0x70>
+ 124:	37 b3       	in	r19, 0x17	; 23
+ 126:	81 e0       	ldi	r24, 0x01	; 1
+ 128:	90 e0       	ldi	r25, 0x00	; 0
+ 12a:	02 c0       	rjmp	.+4      	; 0x130 <gpio_pin_direction_initialize+0x42>
+ 12c:	88 0f       	add	r24, r24
+ 12e:	99 1f       	adc	r25, r25
+ 130:	2a 95       	dec	r18
+ 132:	e2 f7       	brpl	.-8      	; 0x12c <gpio_pin_direction_initialize+0x3e>
+ 134:	80 95       	com	r24
+ 136:	83 23       	and	r24, r19
+ 138:	87 bb       	out	0x17, r24	; 23
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	08 95       	ret
+ 13e:	37 b3       	in	r19, 0x17	; 23
+ 140:	81 e0       	ldi	r24, 0x01	; 1
+ 142:	90 e0       	ldi	r25, 0x00	; 0
+ 144:	02 c0       	rjmp	.+4      	; 0x14a <gpio_pin_direction_initialize+0x5c>
+ 146:	88 0f       	add	r24, r24
+ 148:	99 1f       	adc	r25, r25
+ 14a:	2a 95       	dec	r18
+ 14c:	e2 f7       	brpl	.-8      	; 0x146 <gpio_pin_direction_initialize+0x58>
+ 14e:	83 2b       	or	r24, r19
+ 150:	87 bb       	out	0x17, r24	; 23
+ 152:	81 e0       	ldi	r24, 0x01	; 1
+ 154:	08 95       	ret
+ 156:	80 e0       	ldi	r24, 0x00	; 0
+ 158:	08 95       	ret
+ 15a:	80 e0       	ldi	r24, 0x00	; 0
+ 15c:	08 95       	ret
+ 15e:	80 e0       	ldi	r24, 0x00	; 0
+ 160:	08 95       	ret
 
 Disassembly of section .text.gpio_pin_toggle_logic:
 
-00000152 <gpio_pin_toggle_logic>:
- 152:	61 15       	cp	r22, r1
- 154:	71 05       	cpc	r23, r1
- 156:	81 05       	cpc	r24, r1
- 158:	c9 f0       	breq	.+50     	; 0x18c <gpio_pin_toggle_logic+0x3a>
- 15a:	fb 01       	movw	r30, r22
- 15c:	98 2f       	mov	r25, r24
- 15e:	84 91       	lpm	r24, Z
- 160:	97 fd       	sbrc	r25, 7
- 162:	80 81       	ld	r24, Z
- 164:	87 70       	andi	r24, 0x07	; 7
- 166:	28 2f       	mov	r18, r24
- 168:	30 e0       	ldi	r19, 0x00	; 0
- 16a:	26 30       	cpi	r18, 0x06	; 6
- 16c:	31 05       	cpc	r19, r1
- 16e:	84 f4       	brge	.+32     	; 0x190 <gpio_pin_toggle_logic+0x3e>
- 170:	48 b3       	in	r20, 0x18	; 24
- 172:	21 e0       	ldi	r18, 0x01	; 1
- 174:	30 e0       	ldi	r19, 0x00	; 0
- 176:	b9 01       	movw	r22, r18
- 178:	02 c0       	rjmp	.+4      	; 0x17e <gpio_pin_toggle_logic+0x2c>
- 17a:	66 0f       	add	r22, r22
- 17c:	77 1f       	adc	r23, r23
- 17e:	8a 95       	dec	r24
- 180:	e2 f7       	brpl	.-8      	; 0x17a <gpio_pin_toggle_logic+0x28>
- 182:	cb 01       	movw	r24, r22
- 184:	84 27       	eor	r24, r20
- 186:	88 bb       	out	0x18, r24	; 24
- 188:	81 e0       	ldi	r24, 0x01	; 1
- 18a:	08 95       	ret
- 18c:	80 e0       	ldi	r24, 0x00	; 0
- 18e:	08 95       	ret
- 190:	80 e0       	ldi	r24, 0x00	; 0
- 192:	08 95       	ret
+00000162 <gpio_pin_toggle_logic>:
+ 162:	61 15       	cp	r22, r1
+ 164:	71 05       	cpc	r23, r1
+ 166:	81 05       	cpc	r24, r1
+ 168:	c9 f0       	breq	.+50     	; 0x19c <gpio_pin_toggle_logic+0x3a>
+ 16a:	fb 01       	movw	r30, r22
+ 16c:	98 2f       	mov	r25, r24
+ 16e:	84 91       	lpm	r24, Z
+ 170:	97 fd       	sbrc	r25, 7
+ 172:	80 81       	ld	r24, Z
+ 174:	87 70       	andi	r24, 0x07	; 7
+ 176:	28 2f       	mov	r18, r24
+ 178:	30 e0       	ldi	r19, 0x00	; 0
+ 17a:	26 30       	cpi	r18, 0x06	; 6
+ 17c:	31 05       	cpc	r19, r1
+ 17e:	84 f4       	brge	.+32     	; 0x1a0 <gpio_pin_toggle_logic+0x3e>
+ 180:	48 b3       	in	r20, 0x18	; 24
+ 182:	21 e0       	ldi	r18, 0x01	; 1
+ 184:	30 e0       	ldi	r19, 0x00	; 0
+ 186:	b9 01       	movw	r22, r18
+ 188:	02 c0       	rjmp	.+4      	; 0x18e <gpio_pin_toggle_logic+0x2c>
+ 18a:	66 0f       	add	r22, r22
+ 18c:	77 1f       	adc	r23, r23
+ 18e:	8a 95       	dec	r24
+ 190:	e2 f7       	brpl	.-8      	; 0x18a <gpio_pin_toggle_logic+0x28>
+ 192:	cb 01       	movw	r24, r22
+ 194:	84 27       	eor	r24, r20
+ 196:	88 bb       	out	0x18, r24	; 24
+ 198:	81 e0       	ldi	r24, 0x01	; 1
+ 19a:	08 95       	ret
+ 19c:	80 e0       	ldi	r24, 0x00	; 0
+ 19e:	08 95       	ret
+ 1a0:	80 e0       	ldi	r24, 0x00	; 0
+ 1a2:	08 95       	ret
 
 Disassembly of section .text.__dummy_fini:
 
-00000194 <_fini>:
- 194:	08 95       	ret
+000001a4 <_fini>:
+ 1a4:	08 95       	ret
 
 Disassembly of section .text.__dummy_funcs_on_exit:
 
-00000196 <__funcs_on_exit>:
- 196:	08 95       	ret
+000001a6 <__funcs_on_exit>:
+ 1a6:	08 95       	ret
 
 Disassembly of section .text.__dummy_simulator_exit:
 
-00000198 <__simulator_exit>:
- 198:	08 95       	ret
+000001a8 <__simulator_exit>:
+ 1a8:	08 95       	ret
 
 Disassembly of section .text.exit:
 
-0000019a <exit>:
- 19a:	ec 01       	movw	r28, r24
- 19c:	fc df       	rcall	.-8      	; 0x196 <__funcs_on_exit>
- 19e:	fa df       	rcall	.-12     	; 0x194 <_fini>
- 1a0:	ce 01       	movw	r24, r28
- 1a2:	fa df       	rcall	.-12     	; 0x198 <__simulator_exit>
- 1a4:	ce 01       	movw	r24, r28
- 1a6:	00 d0       	rcall	.+0      	; 0x1a8 <_Exit>
+000001aa <exit>:
+ 1aa:	ec 01       	movw	r28, r24
+ 1ac:	fc df       	rcall	.-8      	; 0x1a6 <__funcs_on_exit>
+ 1ae:	fa df       	rcall	.-12     	; 0x1a4 <_fini>
+ 1b0:	ce 01       	movw	r24, r28
+ 1b2:	fa df       	rcall	.-12     	; 0x1a8 <__simulator_exit>
+ 1b4:	ce 01       	movw	r24, r28
+ 1b6:	00 d0       	rcall	.+0      	; 0x1b8 <_Exit>
 
 Disassembly of section .text._Exit:
 
-000001a8 <_Exit>:
- 1a8:	64 df       	rcall	.-312    	; 0x72 <_exit>
+000001b8 <_Exit>:
+ 1b8:	5c df       	rcall	.-328    	; 0x72 <_exit>

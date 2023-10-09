@@ -8,15 +8,31 @@
 
 #ifndef HAL_GPIO_H_
 #define HAL_GPIO_H_
-/*-------------------------- Includes Section -----------------------------*/
+/* Section : Includes */
 #include "MCAL_Layer/STD/compiler.h"
 #include "MCAL_Layer/STD/device_config.h"
 #include "MCAL_Layer/STD/mcal_std_types.h"
 #include "avr/io.h"
+#include "avr/iotn85.h"
 #include "hal_gpio_config.h"
+#include "Device_Config/device_config.h"
+
+/* Section: Macro Declarations */
+#define PIN_MAX_INDEX      (uint8)5
+#define PIN_MAX_NUMBER     (uint8)6
 
 
-/*------------- User Defined Data Type Declarations Sections --------------*/
+#define BIT_MASK           (uint8)0x01
+#define PORT_MASK          (uint8)0xFF
+
+/* Section: Macro Functions Declarations */
+#define SET_BIT(REG, POS)     (REG |= (BIT_MASK << POS))
+#define CLEAR_BIT(REG, POS)   (REG &= ~(BIT_MASK << POS))
+#define TOGGLE_BIT(REG, POS)   (REG ^= (BIT_MASK << POS))
+#define READ_BIT(REG, POS)   ((REG >> POS)& BIT_MASK)
+
+
+/* Section: Data Type Declarations */
 typedef enum {
 	GPIO_DIRECTION_INPUT= 0 ,
 	GPIO_DIRECTION_OUTPUT
@@ -39,7 +55,6 @@ typedef enum {
 }pin_index_t;
 
 
-
 typedef struct {
 	pin_index_t pin_index : 3 ;
 	direction_t direction : 1 ;
@@ -47,21 +62,7 @@ typedef struct {
 	uint8 reserved : 3 ;
 }pin_config_t;
 
-/*---------------------- Macro Declarations Section -----------------------*/
-#define PIN_MAX_INDEX      (uint8)5
-#define PIN_MAX_NUMBER     (uint8)6
-
-
-#define BIT_MASK           (uint8)0x01
-#define PORT_MASK          (uint8)0xFF
-
-/*---------------------- Macro Functions Sections --------------------------*/
-#define SET_BIT(REG, POS)     (REG |= (BIT_MASK << POS))
-#define CLEAR_BIT(REG, POS)   (REG &= ~(BIT_MASK << POS))
-#define TOGGLE_BIT(REG, POS)   (REG ^= (BIT_MASK << POS))
-#define READ_BIT(REG, POS)   ((REG >> POS)& BIT_MASK)
-
-/*------------------- Functions Declarations Section ----------------------*/
+/* Section: Function Declarations */
 Std_ReturnType gpio_pin_direction_initialize(const pin_config_t *_pin_config) ;
 Std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config, direction_t *direction_status) ;
 Std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config, logic_t logic) ;

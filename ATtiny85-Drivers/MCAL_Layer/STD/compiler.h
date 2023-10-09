@@ -8,20 +8,9 @@
 
 #ifndef COMPILER_H_
 #define COMPILER_H_
-/*-------------------------- Includes Section -----------------------------*/
+/* Section : Includes */
 #include "xc.h"
 
-
-/*------------- User Defined Data Type Declarations Sections --------------*/
-
-
-/*---------------------- Macro Declarations Section -----------------------*/
-
-
-/*---------------------- Macro Functions Sections --------------------------*/
-
-
-/*------------------- Functions Declarations Section ----------------------*/
 
 
 

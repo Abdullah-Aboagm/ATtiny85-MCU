@@ -9,21 +9,20 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-/*-------------------------- Includes Section -----------------------------*/
+/* Section : Includes */
 #include "hal_gpio.h"
 
-
-/*------------- User Defined Data Type Declarations Sections --------------*/
-
-
-/*---------------------- Macro Declarations Section -----------------------*/
+/* Section: Macro Declarations */
 
 
-/*---------------------- Macro Functions Sections --------------------------*/
+/* Section: Macro Functions Declarations */
 
 
-/*------------------- Functions Declarations Section ----------------------*/
+/* Section: Data Type Declarations */
 
+
+/* Section: Function Declarations */
+void main_initialize (void);
 
 
 

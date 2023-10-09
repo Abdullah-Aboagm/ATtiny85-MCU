@@ -9,22 +9,13 @@
 #ifndef STD_LIBRARIES_H_
 #define STD_LIBRARIES_H_
 
-/*-------------------------- Includes Section -----------------------------*/
+/* Section : Includes */
 #include "stdio.h"
 #include "stdlib.h"
 #include "math.h"
 #include "string.h"
 
-/*------------- User Defined Data Type Declarations Sections --------------*/
 
-
-/*---------------------- Macro Declarations Section -----------------------*/
-
-
-/*---------------------- Macro Functions Sections --------------------------*/
-
-
-/*------------------- Functions Declarations Section ----------------------*/
 
 
 

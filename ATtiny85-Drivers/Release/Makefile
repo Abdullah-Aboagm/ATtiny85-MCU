@@ -36,12 +36,14 @@ SUBDIRS :=  \
 ../MCAL_Layer \
 ../ECU_Layer \
 ../MCAL_Layer/GPIO \
+../MCAL_Layer/Device_Config \
 ../MCAL_Layer/STD/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
+../MCAL_Layer/Device_Config/device_config.c \
 ../MCAL_Layer/GPIO/hal_gpio.c
 
 
@@ -53,18 +55,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
+MCAL_Layer/Device_Config/device_config.o \
 MCAL_Layer/GPIO/hal_gpio.o
 
 OBJS_AS_ARGS +=  \
 main.o \
+MCAL_Layer/Device_Config/device_config.o \
 MCAL_Layer/GPIO/hal_gpio.o
 
 C_DEPS +=  \
 main.d \
+MCAL_Layer/Device_Config/device_config.d \
 MCAL_Layer/GPIO/hal_gpio.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
+MCAL_Layer/Device_Config/device_config.d \
 MCAL_Layer/GPIO/hal_gpio.d
 
 OUTPUT_FILE_PATH +=Application.elf
@@ -84,14 +90,21 @@ LINKER_SCRIPT_DEP+=
 ./main.o: .././main.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny85  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.10.348\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny85__ -DNDEBUG  -I".." -I"../ECU_Layer" -I"../MCAL_Layer" -I"../MCAL_Layer/GPIO" -I"../MCAL_Layer/STD"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny85  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.10.348\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny85__ -DNDEBUG  -I".." -I"../ECU_Layer" -I"../MCAL_Layer" -I"../MCAL_Layer/GPIO" -I"../MCAL_Layer/STD" -I"../MCAL_Layer/Device_Config"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL_Layer/Device_Config/device_config.o: ../MCAL_Layer/Device_Config/device_config.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny85  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.10.348\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny85__ -DNDEBUG  -I".." -I"../ECU_Layer" -I"../MCAL_Layer" -I"../MCAL_Layer/GPIO" -I"../MCAL_Layer/STD" -I"../MCAL_Layer/Device_Config"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 MCAL_Layer/GPIO/hal_gpio.o: ../MCAL_Layer/GPIO/hal_gpio.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny85  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.10.348\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny85__ -DNDEBUG  -I".." -I"../ECU_Layer" -I"../MCAL_Layer" -I"../MCAL_Layer/GPIO" -I"../MCAL_Layer/STD"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny85  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.10.348\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny85__ -DNDEBUG  -I".." -I"../ECU_Layer" -I"../MCAL_Layer" -I"../MCAL_Layer/GPIO" -I"../MCAL_Layer/STD" -I"../MCAL_Layer/Device_Config"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

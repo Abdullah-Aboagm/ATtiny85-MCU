@@ -24,7 +24,8 @@ MCAL_Layer/GPIO/hal_gpio.d MCAL_Layer/GPIO/hal_gpio.o: \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdlib.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h \
- ../MCAL_Layer/GPIO/hal_gpio_config.h
+ ../MCAL_Layer/GPIO/hal_gpio_config.h \
+ ../MCAL_Layer/Device_Config/device_config.h
 
 ../MCAL_Layer/GPIO/hal_gpio.h:
 
@@ -79,3 +80,5 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdlib.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h:
 
 ../MCAL_Layer/GPIO/hal_gpio_config.h:
+
+../MCAL_Layer/Device_Config/device_config.h:

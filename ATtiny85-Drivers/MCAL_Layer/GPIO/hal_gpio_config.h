@@ -9,7 +9,7 @@
 #ifndef HAL_GPIO_CONFIG_H_
 #define HAL_GPIO_CONFIG_H_
 
-/*---------------------- Macro Declarations Section -----------------------*/
+/* Section: Macro Declarations */
 #define CONFIGURATION_ENABLE			0x01
 #define CONFIGURATION_DISABLE			0x00
 #define PIN_CONFIGURATION               CONFIGURATION_ENABLE
